@@ -1,33 +1,12 @@
 stages:
-  - test
-  - build
   - deploy
-
-test:
-  stage: test
-  script: echo "Running tests"
-
-build:
-  stage: build
-  script: echo "Building the app"
-
-deploy_staging:
+deploy:
   stage: deploy
   script:
     - echo "Deploy to staging server"
   environment:
     name: staging
-    url: http://juan.sanchez.co
   only:
   - master
-
-deploy_prod:
-  stage: deploy
-  script:
-    - echo "Deploy to production server"
-  environment:
-    name: production
-    url: http://juan.sanchez.co
-  when: manual
   only:
   - master
