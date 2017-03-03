@@ -1,12 +1,11 @@
 stages:
   - deploy
-deploy:
+deploy_prod:
   stage: deploy
   script:
-    - echo "Deploy to staging server"
+    - echo "Deploy to production server"
   environment:
-    name: staging
-  only:
-  - master
+    name: production
+    url: http://juan-sanchez.co
   only:
   - master
