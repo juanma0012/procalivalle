@@ -1,17 +1,33 @@
-pages:
+stages:
+  - test
+  - build
+  - deploy
+
+test:
+  stage: test
+  script: echo "Running tests"
+
+build:
+  stage: build
+  script: echo "Building the app"
+
+deploy_staging:
   stage: deploy
-  environment: staging
   script:
-  - mkdir .public
-  - cp -r * .public
-  - mv .public public
-  artifacts:
-    paths:
-    - public
+    - echo "Deploy to staging server"
+  environment:
+    name: staging
+    url: http://juan.sanchez.co
   only:
   - master
-deploy to production:
+
+deploy_prod:
   stage: deploy
-  environment: production
+  script:
+    - echo "Deploy to production server"
+  environment:
+    name: production
+    url: http://juan.sanchez.co
+  when: manual
   only:
   - master
