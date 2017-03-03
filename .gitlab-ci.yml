@@ -1,9 +1,12 @@
-ges:
+pages:
   stage: deploy
   script:
   - mkdir .public
   - cp -r * .public
   - mv .public public
+  environment:
+    name: staging
+    url: juan-sanchez.co
   artifacts:
     paths:
     - public
