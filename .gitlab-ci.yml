@@ -10,3 +10,7 @@ pages:
     - public
   only:
   - master
+deploy to production:
+  environment: production
+  only:
+  - master
