@@ -1,11 +1,11 @@
-stages:
-  - deploy
-deploy_prod:
+pages:
   stage: deploy
   script:
-    - echo "Deploy to production server"
-  environment:
-    name: production
-    url: http://juan-sanchez.co
+  - mkdir .public
+  - cp -r * .public
+  - mv .public public
+  artifacts:
+    paths:
+    - public
   only:
-  - master
+  - master master
