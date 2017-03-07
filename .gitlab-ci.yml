@@ -7,6 +7,5 @@ pages:
   artifacts:
     paths:
     - public
-  when: always
   only:
-  - master master master
+  - master master master master
